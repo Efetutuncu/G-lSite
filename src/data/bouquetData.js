@@ -14,12 +14,12 @@ export const colors = [
 // audio alanlarına /assets/music/song-1.mp3 gibi gerçek dosya yollarınızı ekleyin.
 // x,y: gülün buket içindeki merkezi (viewBox 1000x760) · scale: boyut · rot: gülün kendi dönüşü
 export const roses = [
-  { id:1, name:'Yakınlık',  songName:'Birinci şarkı',  audio:'', x:362, y:200, scale:1.05, rot:12,  delay:.75 },
-  { id:2, name:'Sessizlik', songName:'İkinci şarkı',   audio:'', x:505, y:122, scale:1.0,  rot:40,  delay:.95 },
-  { id:3, name:'Umut',      songName:'Üçüncü şarkı',   audio:'', x:652, y:205, scale:1.0,  rot:-20, delay:1.12 },
-  { id:4, name:'Hatıra',    songName:'Dördüncü şarkı', audio:'', x:262, y:335, scale:.95,  rot:25,  delay:1.3 },
-  { id:5, name:'Işık',      songName:'Beşinci şarkı',  audio:'', x:505, y:278, scale:1.22, rot:-8,  delay:1.48 },
-  { id:6, name:'Kalp',      songName:'Altıncı şarkı',  audio:'', x:748, y:338, scale:.95,  rot:55,  delay:1.65 },
+  { id:1, name:'Yakınlık',  songName:'Back To Black',  audio:'/assets/music/back-to-black.mp3', x:362, y:200, scale:1.05, rot:12,  delay:.75 },
+  { id:2, name:'Sessizlik', songName:'Cigarettes out the Window',   audio:'/assets/music/cigarettes-out-the-window.mp3', x:505, y:122, scale:1.0,  rot:40,  delay:.95 },
+  { id:3, name:'Umut',      songName:'Diet Mountain Dew',   audio:'/assets/music/diet-mountain-dew.mp3', x:652, y:205, scale:1.0,  rot:-20, delay:1.12 },
+  { id:4, name:'Hatıra',    songName:'Lovesong', audio:'/assets/music/lovesong.mp3', x:262, y:335, scale:.95,  rot:25,  delay:1.3 },
+  { id:5, name:'Işık',      songName:'Love Me Not',  audio:'/assets/music/love-me-not.mp3', x:505, y:278, scale:1.22, rot:-8,  delay:1.48 },
+  { id:6, name:'Kalp',      songName:'Let It Happen',  audio:'/assets/music/let-it-happen.mp3', x:748, y:338, scale:.95,  rot:55,  delay:1.65 },
   { id:7, name:'Daima',     songName:'Yedinci şarkı',  audio:'', x:505, y:428, scale:1.0,  rot:30,  delay:1.82 }
 ];
 
