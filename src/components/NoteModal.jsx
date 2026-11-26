@@ -1,0 +1,1 @@
+export default function NoteModal({branch,onClose}){if(!branch)return null;return <div className="note-backdrop" onClick={onClose}><article className="note" onClick={e=>e.stopPropagation()}><button onClick={onClose}>×</button><p>{branch.note}</p></article></div>}
