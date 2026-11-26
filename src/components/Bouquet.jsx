@@ -1,1 +1,34 @@
-import Rose from './Rose';import Branch from './Branch';import ParticleSystem from './ParticleSystem';export default function Bouquet({roses,branches,palette,onRose,onBranch}){return <div className="bouquet-wrap" style={{'--bloom':palette.petal,'--bloom-light':palette.light}}><div className="atmosphere"><i/><i/><i/></div><ParticleSystem palette={palette}/><svg className="bouquet" viewBox="0 0 1000 760"><ellipse className="bouquet-halo" cx="500" cy="390" rx="370" ry="285" fill={palette.petal}/><g className="bouquet-wind"><image className="real-bouquet" href="/assets/roses/reference-bouquet.png" x="-75" y="-12" width="1150" height="784"/><g className="color-wash" fill={palette.petal}>{roses.map(r=><circle key={r.id} cx={r.x} cy={r.y} r={Math.max(68,r.scale*76)}/>)}</g></g>{branches.map(b=><Branch key={b.id} branch={b} onSelect={onBranch}/>)}{roses.map(r=><Rose key={r.id} rose={r} onSelect={onRose}/>)}</svg></div>}
+import Rose, { RoseDefs } from './Rose';
+import Branch from './Branch';
+import ParticleSystem from './ParticleSystem';
+import Ribbon, { RibbonDefs } from './Ribbon';
+import { FoliageDefs, Leaves, Stems, Gypsophila } from './Foliage';
+
+export default function Bouquet({ roses, decorRoses = [], branches, palette, onRose, onBranch, activeId }) {
+  // Yalnızca gül ve parçacıklar bu değişkenleri okur.
+  const paletteVars = { '--petal': palette.petal, '--shadow': palette.shadow, '--light': palette.light };
+  // Güller arkadan öne (yukarıdan aşağıya) çizilir.
+  const decor = decorRoses.map(r => ({ ...r, decor: true }));
+  const ordered = [...roses, ...decor].sort((a, b) => a.y - b.y);
+
+  return <div className="bouquet-wrap" style={paletteVars}>
+    <svg className="bouquet" viewBox="0 0 1000 760" aria-label="Etkileşimli gül buketi">
+      <defs>
+        <RoseDefs />
+        <FoliageDefs />
+        <RibbonDefs />
+      </defs>
+
+      <g className="bouquet-wind">
+        <Stems roses={[...roses, ...decor]} />
+        <Leaves />
+        <Gypsophila />
+        {branches.map(branch => <Branch key={branch.id} branch={branch} onSelect={onBranch} />)}
+        <Ribbon />
+        {ordered.map(rose => <Rose key={rose.id} rose={rose} active={activeId === rose.id} onSelect={onRose} />)}
+      </g>
+
+      <ParticleSystem />
+    </svg>
+  </div>;
+}
