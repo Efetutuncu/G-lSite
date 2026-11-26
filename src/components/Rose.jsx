@@ -1,0 +1,1 @@
+export default function Rose({rose,onSelect}){return <g className="rose-hit" onClick={e=>{e.stopPropagation();onSelect(rose)}} role="button"><circle cx={rose.x} cy={rose.y} r={Math.max(54,rose.scale*64)}/></g>}
