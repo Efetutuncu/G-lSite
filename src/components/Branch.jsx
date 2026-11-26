@@ -1,0 +1,1 @@
+export default function Branch({branch,onSelect}){return <path className="branch-click" d={branch.d} onClick={e=>{e.stopPropagation();onSelect(branch)}}/>}
